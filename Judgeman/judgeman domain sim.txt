@@ -92,9 +92,3 @@ If higuruma goes 2 turns without scoring a point, he has the choice to consult t
 Damning = Maximum is extended
 Relevant = Reset score to 0 (Re-trial)
 Irrelevant = Accused is found not guilty
-
-
-
-
-DEV PROCESS (WORK ON NEXT)
--Final clean up and better class formatting
