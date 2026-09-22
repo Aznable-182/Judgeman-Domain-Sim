@@ -1,0 +1,100 @@
+judgeman domain sim
+
+create menu similar to hakari domain sim
+you are higuruma and the accused has a random chance of choosing Silence, Lie, or Confess.
+
+if the accused confesses, the evidence is consulted.
+if the accused lies, the evidence is consulted.
+if the accused stays silent, the evidence is consulted.
+Each one has different chances of being picked, Silence and lies are more commonly chosen than confessions.
+
+However there is a secret fourth option. If the accused chooses to state that they are confessing to the crime, then the maximum punishment is sustained (depending on the scenario).
+
+Each punishment has a win percentage. The skill of the accused will alter the percentage.
+There are many levels of skill.
+-Non Sorcerer - 10%
+-Grade 4 - 20%
+-Grade 3 - 25%
+-Grade 2 - 20%
+-Grade 1 - 15%
+-Special Grade - 10%
+
+after a  punishment is dealt, here are the win percentages for the coming battle between higuruma and the accused. (For higuruma to win)
+_Not Guilty
+-Non Sorcerer - 100%
+-Grade 4 - 100%
+-Grade 3 - 90%
+-Grade 2 - 75%
+-Grade 1 - 65%
+-Special Grade - 50%
+
+_Guilty-Confiscation 
+-Non Sorcerer - 100%
+-Grade 4 - 100%
+-Grade 3 - 95%
+-Grade 2 - 80%
+-Grade 1 - 70%
+-Special Grade - 55%
+
+_Guilty-Confiscation: Death Penalty
+-Non Sorcerer - 100%
+-Grade 4 - 100%
+-Grade 3 - 100%
+-Grade 2 - 90%
+-Grade 1 - 85%
+-Special Grade - 65%
+
+The scenarios are similar to:
+Petty Theft
+Fraud
+Underage Drinking
+Violence With Injury
+Criminal Damage
+Knife or sharp instrument Offences
+Manslaughter
+Firearms Offence
+Underage Gambling
+Computer Misuse
+Illicit Drug use
+Drunk Driving
+Murder
+Mass Murder
+
+each carries a different weight if a guilty verdict is decided.
+Each accused must be initialised as an object of class "Accused"
+the accused's crime is tied to the through an attribute "Crime"
+the "Crime" Attribute is an object itself with the attribute evidence, which has three states: "Damning", "Relevant", "Irrelevant" (importance to the case decreasing)
+the evidence state is randomly generated with the case, with these chances:
+Damning - 15%
+Relevant - 35%
+Irrelevant - 50%
+
+Higuruma can choose between three options to predict what the accused will say. He has the options: Accuse, Refute, Agree
+He must achieve three points before the accused's sentence is served.
+each matchup has a different result:
+Higuruma vs Accused
+_Intended Matchup_
+Accuse vs Silence = 1 point
+Refute vs Lie = 1 point
+Agree vs Confess = 3 points
+
+Accuse vs Lie = 0 points
+Accuse vs Confess = 1 points
+Refute vs Silence = 0 points
+Refute vs Confess = -1 point
+Agree vs Lie = -1 point
+Agree vs Silence = 0 points
+
+if the points become -3, the accused is found not guilty and the proceeding fight has regular chances
+if three points are achieved, the maximum punishment is extended, for example if found guilty for petty theft, the result will be confiscation, but if found guilty for mass murder, the death penalty will be extended.
+
+If higuruma goes 2 turns without scoring a point, he has the choice to consult the evidence as a last resort. This is a hail mary where the result will depend on the evidence state:
+Damning = Maximum is extended
+Relevant = Reset score to 0 (Re-trial)
+Irrelevant = Accused is found not guilty
+
+
+
+
+DEV PROCESS (WORK ON NEXT)
+-Final clean up and better class formatting
